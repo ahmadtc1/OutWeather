@@ -3,7 +3,6 @@ import random
 from datetime import datetime
 from flask_humanize import Humanize
 import model as m
-
 from flask import Flask, render_template, request, redirect, session
 
 app = Flask(__name__)
@@ -16,7 +15,7 @@ def default():
     return redirect('/mainmenu')
 
 @app.route('/mainmenu',methods=['GET'])
-def website():
+def mainmenu():
     return render_template('mainmenu.html')
 
 @app.route('/weather', methods=['GET','POST'])
@@ -32,6 +31,9 @@ def weather():
             return redirect('/outfits')
         else:
             return redirect('/weather')
+
+    else:
+        return render_template('weather.html')
 
 
 @app.route('/outfits', methods=['GET','POST'])
