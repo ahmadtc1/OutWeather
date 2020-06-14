@@ -12,6 +12,10 @@ app.secret_key = 'paulina is cool'
 
 HUMANIZE_USE_UTC = True
 
+@app.route('/')
+def default():
+    return redirect('/mainmenu')
+
 @app.route('/mainmenu',methods=['GET'])
 def website():
     if request.method=="GET":
